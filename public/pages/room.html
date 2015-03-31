@@ -1,0 +1,39 @@
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-heading">Chat</div>
+        <div class="panel-body">
+            <div class="list-group messages" auto-scroll-to-bottom>
+                <div class="list-group-item message" ng-repeat="message in room.messages track by $index">
+                    <img ng-src="{{message.creator.avatarUrl}}" title="{{message.creator.name}}"
+                         class="img-rounded" height="50"/>
+                    {{message.creator.name}}: <span class="message-content">{{message.content}}</span>
+                    <time am-time-ago="message.createAt"></time>
+                </div>
+            </div>
+            <form>
+                <div class="form-group" ng-controller="MessageCreatorCtrl">
+                    <div class="col-md-11">
+                            <textarea class="form-control" placeholder="Ctrl+Enter to quick send"
+                                      ng-model="newMessage" ctrl-enter-break-line="createMessage()"></textarea>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="button" class="btn btn-primary" value="Send"
+                               ng-click="createMessage()" ng-disabled="newMessage==''"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">Online Users</div>
+        <div class="panel-body">
+            <div class="list-group">
+                <div class="list-group-item" ng-repeat="user in room.users">
+                    <img ng-src="{{user.avatarUrl}}" title="{{user.name}}" class="img-rounded" height="50"/>{{user.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

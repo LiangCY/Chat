@@ -1,0 +1,15 @@
+.messages {
+
+}
+
+.messages .message {
+
+}
+
+.messages .message .message-content {
+    font-weight: bold
+}
+
+.messages .message time {
+    float: right
+}
