@@ -2,7 +2,7 @@
  * Created by lcy on 2015/3/19.
  */
 angular.module('chatApp').factory('socket', function ($rootScope) {
-    var socket = io.connect('http://114.212.125.173:8000');
+    var socket = io.connect('http://localhost:8000');
     return {
         on: function (eventName, callback) {
             socket.on(eventName, function () {
