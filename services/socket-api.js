@@ -12,17 +12,6 @@ exports.connect = function (socket) {
                 action: 'online',
                 data: user
             });
-            socket.broadcast.emit('chat', {
-                action: 'messageAdded',
-                data: {
-                    content: user.name + '进入了聊天室',
-                    creator: {
-                        name: 'SYSTEM',
-                        avatarUrl: 'http://www.easyicon.net/api/resize_png_new.php?id=1171003&size=128'
-                    },
-                    createAt: new Date()
-                }
-            });
         }
     });
 };
@@ -36,17 +25,6 @@ exports.disconnect = function (socket) {
             socket.broadcast.emit('chat', {
                 action: 'offline',
                 data: user
-            });
-            socket.broadcast.emit('chat', {
-                action: 'messageAdded',
-                data: {
-                    content: user.name + '离开了聊天室',
-                    creator: {
-                        name: 'SYSTEM',
-                        avatarUrl: 'http://www.easyicon.net/api/resize_png_new.php?id=1171003&size=128'
-                    },
-                    createAt: new Date()
-                }
             });
         }
     })
